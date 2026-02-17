@@ -331,8 +331,8 @@ GPL v3 or later — Fully compliant with Moodle licensing standards.
 ## 👨‍💻 Developer
 
 **John Mulama**
-Senior Software Engineer
-Moodle Plugin Specialist
+Senior Software Engineer,
+Moodle Plugin Specialist,
 Learning Systems Solutions Architect
 
 ---
@@ -346,5 +346,3 @@ Please submit pull requests or open GitHub issues.
 
 ## 📸 Screenshots
 
-
-If you want, I can help you design a **GitHub portfolio page that converts visitors into paying clients**. Just say the word.
