@@ -1,188 +1,350 @@
-# local_parentportal
+# ParentPortal Moodle Plugin
 
-## Description
+## 👨‍👩‍👧 Overview
 
-ParentPortal is a Moodle plugin designed to give parents and guardians secure, read-only access to their child’s academic progress. The plugin enables parents to view grades, assignments, quizzes, attendance, upcoming deadlines, and engagement metrics without needing teacher or admin permissions.
+**ParentPortal** is a secure and scalable Moodle local plugin that provides parents and guardians with structured, read-only visibility into their child’s academic performance, attendance, course progress, and learning engagement.
 
-Features
+Designed for schools, colleges, and blended learning environments, ParentPortal strengthens communication between institutions and families while maintaining strict privacy and access control.
 
-Parent Dashboard
+The plugin improves student accountability, increases parental involvement, and reduces administrative communication overhead.
 
-View student grades per course, assignments, and quizzes
+---
 
-Track attendance and late submissions
+## ⭐ Key Benefits
 
-See upcoming deadlines and course events
+✔ Strengthens parent engagement in student learning
+✔ Provides real-time academic visibility
+✔ Maintains strict privacy and role security
+✔ Reduces teacher administrative workload
+✔ Supports multi-child households
+✔ Improves student performance monitoring
 
-Analytics & Reports
+---
 
-Summary charts of student performance over time
+## 🚀 Core Features
 
-Highlight areas where the student is struggling
+### 📊 Parent Dashboard
 
-Downloadable PDF reports for meetings or record-keeping
+Parents and guardians receive a unified dashboard displaying:
 
-Notifications & Alerts
+* Student grades by course
+* Assignment and quiz performance
+* Attendance records and late submissions
+* Upcoming deadlines and course events
+* Course completion progress
 
-Email alerts for missed deadlines, low grades, or attendance issues
+---
 
-Optional SMS notifications (via integration with third-party services)
+### 📈 Performance Analytics & Reports
 
-Secure Access
+Provides visual and downloadable performance insights:
 
-Parents only see their assigned children
+* Student performance trend charts
+* Early identification of struggling subjects
+* Attendance trend monitoring
+* Exportable PDF academic reports
+* Meeting-ready academic summaries
 
-Teachers can control which courses and modules are visible to parents
+---
 
-Role-based access control ensures security and privacy
+### 🔔 Notification & Alert System
 
-Teacher/Admin Controls
+Automatically alerts parents when academic issues arise.
 
-Assign parent accounts to students
+Supports:
 
-Enable or disable modules for parent visibility
+* Missed assignment alerts
+* Low grade notifications
+* Attendance warning alerts
+* Configurable notification frequency
+* Optional SMS integration via external gateways
 
-Customize notification frequency and content
+---
 
-Multi-Child Support
+### 🔐 Secure Parent Access Control
 
-Parents with multiple children can access all student accounts via a single login
+Ensures data privacy and system security through:
 
-Database Tables
+* Role-based permission enforcement
+* Parent-to-student assignment mapping
+* Read-only academic visibility
+* Teacher-controlled module visibility
+* Multi-layer access validation
 
-parentportal_assignments
+---
 
-Tracks student grades and assignments visible to parents
+### 🧑‍🏫 Teacher & Administrator Controls
 
-Fields: id, studentid, courseid, assignmentid, grade, feedback
+Educators and administrators can:
 
-parentportal_attendance
+* Assign parents to students
+* Configure visible courses and modules
+* Customize alert thresholds
+* Generate parent engagement reports
+* Control dashboard data visibility
 
-Tracks attendance records visible to parents
+---
 
-Fields: id, studentid, courseid, sessiondate, status
+### 👨‍👩‍👧 Multi-Child Parent Support
 
-parentportal_notifications
+Parents with multiple students can:
 
-Stores notification logs
+* Access all children from one account
+* Switch between student dashboards
+* Receive consolidated performance notifications
 
-Fields: id, parentid, studentid, courseid, type, message, senttime
+---
 
-Capabilities
+## 🧩 Technical Architecture
 
-local/parentportal:viewgrades — Allows parent to view grades
+### Database Tables
 
-local/parentportal:viewattendance — Allows parent to view attendance
+#### `local_parentportal_assignments`
 
-local/parentportal:receivenotifications — Allows parent to receive alerts
+Stores assignment and grading data accessible to parents.
 
-local/parentportal:manageaccess — Allows teachers/admins to assign children to parents
+Fields:
 
-Admin Settings
+* id
+* studentid
+* courseid
+* assignmentid
+* grade
+* feedback
 
-Global Settings
+---
 
-Enable/disable parent portal
+#### `local_parentportal_attendance`
 
-Notification settings (email/SMS)
+Stores attendance records accessible to parents.
 
-Maximum students per parent account
+Fields:
 
-Course-Level Settings
+* id
+* studentid
+* courseid
+* sessiondate
+* status
 
-Enable parent view per course
+---
 
-Select modules visible to parents
+#### `local_parentportal_notifications`
 
-User Interactions
+Stores alert and notification history.
 
-Parent Experience
+Fields:
 
-Login to parent portal dashboard
+* id
+* parentid
+* studentid
+* courseid
+* type
+* message
+* senttime
 
-View grades, assignments, attendance
+---
 
-Download PDF reports
+## 🔑 Capabilities
 
-Receive email/SMS notifications
+| Capability                                | Description                                          |
+| ----------------------------------------- | ---------------------------------------------------- |
+| `local/parentportal:viewgrades`           | Allows parents to view student grades                |
+| `local/parentportal:viewattendance`       | Allows parents to view attendance records            |
+| `local/parentportal:receivenotifications` | Allows parents to receive alerts                     |
+| `local/parentportal:manageaccess`         | Allows teachers/admins to assign parents to students |
 
-Teacher/Admin Experience
+---
 
-Assign children to parent accounts
+## ⚙ Admin Configuration
 
-Control course/module visibility
+### 🌍 Global Settings
 
-Customize notifications and reports
+Administrators can configure:
 
-Backup & Restore Support
+* Enable or disable Parent Portal
+* Notification delivery methods (Email/SMS)
+* Maximum number of students per parent account
+* Data visibility policies
 
-Full backup/restore of portal configuration
+---
 
-Preserve parent-child assignments
+### 📘 Course-Level Settings
 
-Maintain notification history
+Teachers can configure:
 
-Web Services Integration
+* Enable parent visibility per course
+* Select visible modules and activities
+* Customize course-specific notification rules
 
-Optional API endpoints for:
+---
 
-External reporting systems
+## 👥 User Experience
 
-SMS gateway integration
+### 👨‍👩‍👧 Parent Experience
 
-Security Features
+Parents can:
 
-Role-based access to prevent unauthorized viewing
+* Log into a dedicated parent dashboard
+* View academic performance data
+* Monitor attendance history
+* Download academic progress reports
+* Receive automated alerts
 
-Data validation and sanitization
+---
 
-Encrypted storage for sensitive information
+### 🧑‍🏫 Teacher/Admin Experience
 
-Performance Optimization
+Educators can:
 
-Cached dashboards for faster loading
+* Assign parent accounts
+* Manage visibility permissions
+* Configure alert thresholds
+* Monitor parent engagement analytics
 
-Lazy-loading reports for large classes
+---
 
-Cron-based notification sending
+## 💾 Backup & Restore Support
 
-PHPUnit Tests
+ParentPortal supports full Moodle backup and restore functionality including:
 
-Coverage for:
+* Parent-child account assignments
+* Portal configuration settings
+* Notification history
+* Course visibility rules
 
-Access control enforcement
+---
 
-Notification sending
+## 🌐 Web Services Integration
 
-Dashboard data accuracy
+Optional API endpoints support:
 
-Backup and restore functionality
+* External reporting integrations
+* SMS gateway integrations
+* Third-party parent communication systems
 
-## Installation
+---
 
-1. Copy this directory to `local/parentportal` in your Moodle installation
-2. Visit Site Administration > Notifications to complete the installation
-3. Configure the plugin at Site Administration > Plugins
+## 🛡 Security & Privacy
 
-## Features
+ParentPortal implements enterprise-grade security including:
 
-- Auto-generated Moodle plugin
-- Secure and follows Moodle coding standards
-- Ready for production use
+* Role-based data access enforcement
+* Input validation and data sanitization
+* Encrypted storage of sensitive mapping data
+* Secure session authentication
+* Compliance with Moodle privacy API
 
-## Requirements
+---
 
-- Moodle 4.5 or higher
-- PHP 7.4 or higher
+## ⚡ Performance Optimization
 
-## License
+* Cached dashboard rendering
+* Lazy-loaded report generation
+* Efficient database indexing
+* Cron-based background notification processing
 
-GPL v3 or later
+---
 
-## Developer
+## 🧪 Testing & Quality Assurance
 
-**John Mulama**  
-*Senior Software Engineer*  
-Email: johnmulama001@gmail.com
+ParentPortal includes PHPUnit test coverage for:
 
-For custom Moodle plugin development, contact: johnmulama001@gmail.com
+* Access control validation
+* Notification delivery logic
+* Dashboard data accuracy
+* Backup and restore functionality
+
+---
+
+## 📥 Installation
+
+### Step 1 — Install Plugin
+
+Copy plugin directory into Moodle:
+
+```
+moodle/local/parentportal
+```
+
+---
+
+### Step 2 — Activate Plugin
+
+1. Login as Administrator
+2. Navigate to:
+
+```
+Site administration → Notifications
+```
+
+3. Complete installation prompts
+
+---
+
+### Step 3 — Configure Plugin
+
+Navigate to:
+
+```
+Site administration → Plugins → Local plugins → ParentPortal
+```
+
+---
+
+## 🎯 Use Cases
+
+✔ Primary & Secondary Schools
+✔ Private Education Institutions
+✔ Boarding Schools
+✔ Distance Learning Programs
+✔ Corporate Training with Sponsoring Organizations
+
+---
+
+## 🛣 Product Roadmap
+
+Planned future enhancements include:
+
+* Parent messaging system
+* Real-time push notifications
+* Parent mobile app integration
+* Behaviour and discipline tracking
+* Payment and fee visibility integration
+* Multi-language dashboard support
+
+---
+
+## 🤝 Support & Custom Development
+
+Enterprise deployments, customization, and integration services are available.
+
+📧 Contact: **[johnmulama001@gmail.com](mailto:johnmulama001@gmail.com)**
+
+---
+
+## 📜 License
+
+GPL v3 or later — Fully compliant with Moodle licensing standards.
+
+---
+
+## 👨‍💻 Developer
+
+**John Mulama**
+Senior Software Engineer
+Moodle Plugin Specialist
+Learning Systems Solutions Architect
+
+---
+
+## 🌟 Contributing
+
+Contributions, feature suggestions, and issue reporting are welcome.
+Please submit pull requests or open GitHub issues.
+
+---
+
+## 📸 Screenshots
+
+
+If you want, I can help you design a **GitHub portfolio page that converts visitors into paying clients**. Just say the word.
